@@ -1,0 +1,1043 @@
+{
+  "contractName": "Verifier",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.2+commit.1df8f40c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/SolnSquareVerifier.sol\":\"Verifier\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"openzeppelin-solidity/contracts/drafts/Counters.sol\":{\"keccak256\":\"0xe695e6c6744447c437392ac0337f9e81f4e992a934f26a1d4d3d9421d8cf062c\",\"urls\":[\"bzzr://995477d8e5db46230ab970c0f3edecdc2ce9428bf0f1745bb53cd2a1a813186b\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x4c8feb28b5ed53e665759547bab9da6dea09a0bfff81d5d1eeef05d9cd9f9e38\",\"urls\":[\"bzzr://304cd8db3423e0ade8e5f22c152a0a331a0654f76b7572cbd4d1392d807c1d1f\"]},\"openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol\":{\"keccak256\":\"0x5e14bffa5cb5fa7db317008c535bd81ccf2296a915e0bb66e43c5130844df347\",\"urls\":[\"bzzr://3e2e024ed1bf8371b6e5b33ea6f199ca3ed42b4f892d112c2d84681625cf4352\"]},\"openzeppelin-solidity/contracts/utils/Address.sol\":{\"keccak256\":\"0xfdd89f755b38866eab1ab71eaf5130a5fedd734894146d0a24a594e86d6dac4a\",\"urls\":[\"bzzr://bb5bb73b9db0afe7de7f69894865c15feaa41cf544a85aebe330fd3711def1d7\"]},\"project:/contracts/ERC721Mintable.sol\":{\"keccak256\":\"0xccd32b075e722a1f88402c7767bfaa71ce5359de1ee4d9653faa42be99670d1f\",\"urls\":[\"bzzr://89adb95b8b71ff9f525064ec4c4de160fe4d75844371f23a37f1ade79036b117\"]},\"project:/contracts/Oraclize.sol\":{\"keccak256\":\"0xb3e82e33c07c4dfc89d3bd2c7dbef5d447a6b55d07671a13b29ad7b726b34d7a\",\"urls\":[\"bzzr://ac38cac3a509fea485f7fed2d763b62d6c92a424669582a020f4bfb2eaf5e0de\"]},\"project:/contracts/SolnSquareVerifier.sol\":{\"keccak256\":\"0x0ea9c8da2330d1ed34f6a60dc853f04afa7400b0ed6f1b20733729c56c910868\",\"urls\":[\"bzzr://88e28a8f40dc1aa00b1a7cfe35cd1245168676d25c57ebf62e8d4e53ff054a4f\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a72305820c8e7740c54a82a1d04142cb911cbd778e24b55581d46fd6c574a183eb5be31cf0029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a72305820c8e7740c54a82a1d04142cb911cbd778e24b55581d46fd6c574a183eb5be31cf0029",
+  "sourceMap": "1715:20:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1715:20:6;;;;;;;",
+  "deployedSourceMap": "1715:20:6:-;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.5.2;\n\nimport \"./ERC721Mintable.sol\";\n\ncontract SolnSquareVerifier is CustomERC721Mintable {\n    constructor(\n        address verifierAddress,\n        string memory name,\n        string memory symbol\n    ) public CustomERC721Mintable(name, symbol) {\n        // verifierContract = Verifier(verifierAddress);\n    }\n\n    // TODO define a solutions struct that can hold an index & an address\n    struct Solution {\n        bytes32 index;\n        address solutionAddress;\n    }\n\n    // TODO define a mapping to store unique solutions submitted\n    mapping(address => Solution) private solutions;\n\n    // TODO Create an event to emit when a solution is added\n    event SolutionAdded(bytes32 index, address solutionAddress);\n\n    // TODO Create a function to add the solutions to the array and emit the event\n    // Optionally you could also store the hash of the solution. Also, I want to mention that every solution MUST be unique, the CAN’T be two solutions that are equal. To verify that you can hash the solutions and use the hash as a key for a mapping of solutions\n\n    // TODO Create a function to mint new NFT only after the solution has been verified\n    //  - make sure the solution is unique (has not been used before)\n    //  - make sure you handle metadata as well as tokenSuplly\n\n    // The user executes the mint function and inputs to it the the necessary parameters to mint and proof\n    // Verify that the proof was not used previously\n    // Verify that the proof is valid\n    // Execute the addSolution function to store the solution to make sure that this solution can’t be used in the future\n    // Mint the token\n    function mint() public {}\n}\n\ncontract Verifier {}\n",
+  "sourcePath": "/Users/houchia/udacity/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/SolnSquareVerifier.sol",
+    "exportedSymbols": {
+      "SolnSquareVerifier": [
+        7850
+      ],
+      "Verifier": [
+        7851
+      ]
+    },
+    "id": 7852,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7813,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:22:6"
+      },
+      {
+        "absolutePath": "project:/contracts/ERC721Mintable.sol",
+        "file": "./ERC721Mintable.sol",
+        "id": 7814,
+        "nodeType": "ImportDirective",
+        "scope": 7852,
+        "sourceUnit": 1543,
+        "src": "56:30:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7815,
+              "name": "CustomERC721Mintable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1542,
+              "src": "119:20:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_CustomERC721Mintable_$1542",
+                "typeString": "contract CustomERC721Mintable"
+              }
+            },
+            "id": 7816,
+            "nodeType": "InheritanceSpecifier",
+            "src": "119:20:6"
+          }
+        ],
+        "contractDependencies": [
+          1090,
+          1388,
+          1500,
+          574,
+          528,
+          1542,
+          446,
+          7811
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7850,
+        "linearizedBaseContracts": [
+          7850,
+          1542,
+          1500,
+          7811,
+          1388,
+          1090,
+          574,
+          528,
+          446
+        ],
+        "name": "SolnSquareVerifier",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 7829,
+              "nodeType": "Block",
+              "src": "297:64:6",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 7830,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 7825,
+                    "name": "name",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7820,
+                    "src": "283:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 7826,
+                    "name": "symbol",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7822,
+                    "src": "289:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  }
+                ],
+                "id": 7827,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 7824,
+                  "name": "CustomERC721Mintable",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1542,
+                  "src": "262:20:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_CustomERC721Mintable_$1542_$",
+                    "typeString": "type(contract CustomERC721Mintable)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "262:34:6"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7823,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7818,
+                  "name": "verifierAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7830,
+                  "src": "167:23:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7817,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "167:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7820,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7830,
+                  "src": "200:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 7819,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7822,
+                  "name": "symbol",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7830,
+                  "src": "228:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 7821,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "228:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "157:97:6"
+            },
+            "returnParameters": {
+              "id": 7828,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "297:0:6"
+            },
+            "scope": 7850,
+            "src": "146:215:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "SolnSquareVerifier.Solution",
+            "id": 7835,
+            "members": [
+              {
+                "constant": false,
+                "id": 7832,
+                "name": "index",
+                "nodeType": "VariableDeclaration",
+                "scope": 7835,
+                "src": "467:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 7831,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "467:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 7834,
+                "name": "solutionAddress",
+                "nodeType": "VariableDeclaration",
+                "scope": 7835,
+                "src": "490:23:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 7833,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "490:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Solution",
+            "nodeType": "StructDefinition",
+            "scope": 7850,
+            "src": "441:79:6",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 7839,
+            "name": "solutions",
+            "nodeType": "VariableDeclaration",
+            "scope": 7850,
+            "src": "591:46:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Solution_$7835_storage_$",
+              "typeString": "mapping(address => struct SolnSquareVerifier.Solution)"
+            },
+            "typeName": {
+              "id": 7838,
+              "keyType": {
+                "id": 7836,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "599:7:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "591:28:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Solution_$7835_storage_$",
+                "typeString": "mapping(address => struct SolnSquareVerifier.Solution)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 7837,
+                "name": "Solution",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 7835,
+                "src": "610:8:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Solution_$7835_storage_ptr",
+                  "typeString": "struct SolnSquareVerifier.Solution"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7845,
+            "name": "SolutionAdded",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7844,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7841,
+                  "indexed": false,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7845,
+                  "src": "725:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7840,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "725:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7843,
+                  "indexed": false,
+                  "name": "solutionAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7845,
+                  "src": "740:23:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7842,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "740:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "724:40:6"
+            },
+            "src": "705:60:6"
+          },
+          {
+            "body": {
+              "id": 7848,
+              "nodeType": "Block",
+              "src": "1709:2:6",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 7849,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7846,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1699:2:6"
+            },
+            "returnParameters": {
+              "id": 7847,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1709:0:6"
+            },
+            "scope": 7850,
+            "src": "1686:25:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7852,
+        "src": "88:1625:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7851,
+        "linearizedBaseContracts": [
+          7851
+        ],
+        "name": "Verifier",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 7852,
+        "src": "1715:20:6"
+      }
+    ],
+    "src": "32:1704:6"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/SolnSquareVerifier.sol",
+      "exportedSymbols": {
+        "SolnSquareVerifier": [
+          7850
+        ],
+        "Verifier": [
+          7851
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.5",
+            ".2"
+          ]
+        },
+        "id": 7813,
+        "name": "PragmaDirective",
+        "src": "32:22:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1543,
+          "absolutePath": "project:/contracts/ERC721Mintable.sol",
+          "file": "./ERC721Mintable.sol",
+          "scope": 7852,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 7814,
+        "name": "ImportDirective",
+        "src": "56:30:6"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            1090,
+            1388,
+            1500,
+            574,
+            528,
+            1542,
+            446,
+            7811
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            7850,
+            1542,
+            1500,
+            7811,
+            1388,
+            1090,
+            574,
+            528,
+            446
+          ],
+          "name": "SolnSquareVerifier",
+          "scope": 7852
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "CustomERC721Mintable",
+                  "referencedDeclaration": 1542,
+                  "type": "contract CustomERC721Mintable"
+                },
+                "id": 7815,
+                "name": "UserDefinedTypeName",
+                "src": "119:20:6"
+              }
+            ],
+            "id": 7816,
+            "name": "InheritanceSpecifier",
+            "src": "119:20:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "name": "",
+              "scope": 7850,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "verifierAddress",
+                      "scope": 7830,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 7817,
+                        "name": "ElementaryTypeName",
+                        "src": "167:7:6"
+                      }
+                    ],
+                    "id": 7818,
+                    "name": "VariableDeclaration",
+                    "src": "167:23:6"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "name",
+                      "scope": 7830,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 7819,
+                        "name": "ElementaryTypeName",
+                        "src": "200:6:6"
+                      }
+                    ],
+                    "id": 7820,
+                    "name": "VariableDeclaration",
+                    "src": "200:18:6"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "symbol",
+                      "scope": 7830,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 7821,
+                        "name": "ElementaryTypeName",
+                        "src": "228:6:6"
+                      }
+                    ],
+                    "id": 7822,
+                    "name": "VariableDeclaration",
+                    "src": "228:20:6"
+                  }
+                ],
+                "id": 7823,
+                "name": "ParameterList",
+                "src": "157:97:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7828,
+                "name": "ParameterList",
+                "src": "297:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1542,
+                      "type": "type(contract CustomERC721Mintable)",
+                      "value": "CustomERC721Mintable"
+                    },
+                    "id": 7824,
+                    "name": "Identifier",
+                    "src": "262:20:6"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 7820,
+                      "type": "string memory",
+                      "value": "name"
+                    },
+                    "id": 7825,
+                    "name": "Identifier",
+                    "src": "283:4:6"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 7822,
+                      "type": "string memory",
+                      "value": "symbol"
+                    },
+                    "id": 7826,
+                    "name": "Identifier",
+                    "src": "289:6:6"
+                  }
+                ],
+                "id": 7827,
+                "name": "ModifierInvocation",
+                "src": "262:34:6"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7829,
+                "name": "Block",
+                "src": "297:64:6"
+              }
+            ],
+            "id": 7830,
+            "name": "FunctionDefinition",
+            "src": "146:215:6"
+          },
+          {
+            "attributes": {
+              "canonicalName": "SolnSquareVerifier.Solution",
+              "name": "Solution",
+              "scope": 7850,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "index",
+                  "scope": 7835,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 7831,
+                    "name": "ElementaryTypeName",
+                    "src": "467:7:6"
+                  }
+                ],
+                "id": 7832,
+                "name": "VariableDeclaration",
+                "src": "467:13:6"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "solutionAddress",
+                  "scope": 7835,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 7833,
+                    "name": "ElementaryTypeName",
+                    "src": "490:7:6"
+                  }
+                ],
+                "id": 7834,
+                "name": "VariableDeclaration",
+                "src": "490:23:6"
+              }
+            ],
+            "id": 7835,
+            "name": "StructDefinition",
+            "src": "441:79:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "solutions",
+              "scope": 7850,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct SolnSquareVerifier.Solution)",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct SolnSquareVerifier.Solution)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 7836,
+                    "name": "ElementaryTypeName",
+                    "src": "599:7:6"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Solution",
+                      "referencedDeclaration": 7835,
+                      "type": "struct SolnSquareVerifier.Solution"
+                    },
+                    "id": 7837,
+                    "name": "UserDefinedTypeName",
+                    "src": "610:8:6"
+                  }
+                ],
+                "id": 7838,
+                "name": "Mapping",
+                "src": "591:28:6"
+              }
+            ],
+            "id": 7839,
+            "name": "VariableDeclaration",
+            "src": "591:46:6"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "SolutionAdded"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "index",
+                      "scope": 7845,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 7840,
+                        "name": "ElementaryTypeName",
+                        "src": "725:7:6"
+                      }
+                    ],
+                    "id": 7841,
+                    "name": "VariableDeclaration",
+                    "src": "725:13:6"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "solutionAddress",
+                      "scope": 7845,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 7842,
+                        "name": "ElementaryTypeName",
+                        "src": "740:7:6"
+                      }
+                    ],
+                    "id": 7843,
+                    "name": "VariableDeclaration",
+                    "src": "740:23:6"
+                  }
+                ],
+                "id": 7844,
+                "name": "ParameterList",
+                "src": "724:40:6"
+              }
+            ],
+            "id": 7845,
+            "name": "EventDefinition",
+            "src": "705:60:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "mint",
+              "scope": 7850,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7846,
+                "name": "ParameterList",
+                "src": "1699:2:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7847,
+                "name": "ParameterList",
+                "src": "1709:0:6"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7848,
+                "name": "Block",
+                "src": "1709:2:6"
+              }
+            ],
+            "id": 7849,
+            "name": "FunctionDefinition",
+            "src": "1686:25:6"
+          }
+        ],
+        "id": 7850,
+        "name": "ContractDefinition",
+        "src": "88:1625:6"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            7851
+          ],
+          "name": "Verifier",
+          "nodes": [
+            null
+          ],
+          "scope": 7852
+        },
+        "id": 7851,
+        "name": "ContractDefinition",
+        "src": "1715:20:6"
+      }
+    ],
+    "id": 7852,
+    "name": "SourceUnit",
+    "src": "32:1704:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-07T21:41:02.885Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

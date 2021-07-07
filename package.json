@@ -11,7 +11,10 @@
   "author": "pk <pkrasam@gmail.com> (https://ipfs.infura.io/ipfs/QmSXiR9Khm3yo1J67nUopvVBxFJ8YGN2fUGZ34Etr3m92x/)",
   "license": "MIT",
   "devDependencies": {
-    "lite-server": "2.4.0"
+    "dotenv": "^10.0.0",
+    "lite-server": "2.4.0",
+    "truffle-hdwallet-provider": "^1.0.0-web3one.5",
+    "web3": "^1.4.0"
   },
   "dependencies": {
     "openzeppelin-solidity": "^2.2.0",
