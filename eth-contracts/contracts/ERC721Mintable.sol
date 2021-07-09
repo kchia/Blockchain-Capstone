@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.5.2;
+pragma solidity 0.5.7;
 
 import "openzeppelin-solidity/contracts/utils/Address.sol"; // is it a contract or an individual address
 import "openzeppelin-solidity/contracts/drafts/Counters.sol"; // prevents overflow/underflow when incrementing/decrementing

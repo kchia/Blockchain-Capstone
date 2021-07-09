@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.5.2;
+pragma solidity 0.5.7;
 
 import "./ERC721Mintable.sol";
 import "./SquareVerifier.sol";

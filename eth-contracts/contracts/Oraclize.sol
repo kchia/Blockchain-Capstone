@@ -25,7 +25,7 @@ THE SOFTWARE.
 
 */
 // SPDX-License-Identifier: MIT
-pragma solidity 0.5.2;
+pragma solidity 0.5.7;
 
 // Dummy contract only used to emit to end-user they are using wrong solc
 contract solcChecker {
