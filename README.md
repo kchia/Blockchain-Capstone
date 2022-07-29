@@ -1,4 +1,4 @@
-# Udacity Blockchain Capstone
+# Real Estate DApp
 
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product.
 
